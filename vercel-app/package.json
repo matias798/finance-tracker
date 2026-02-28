@@ -1,0 +1,8 @@
+{
+  "name": "shared-expenses",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm install && npm run build"
+  }
+}
