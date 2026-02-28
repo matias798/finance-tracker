@@ -153,11 +153,14 @@ backend:
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: true
         agent: "main"
         comment: "PUT /api/items/{id}/move-to-expense working"
+      - working: true
+        agent: "testing"
+        comment: "✅ TESTED: Move to expense API working perfectly. PUT /api/items/{id}/move-to-expense?paid_by={user_id} correctly changes item type from 'cart' to 'expense' and sets paidBy field. Returns updated item with correct values."
 
 frontend:
   - task: "Login/User selection screen"
