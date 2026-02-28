@@ -58,7 +58,7 @@ export default function LoginScreen() {
     try {
       await AsyncStorage.setItem('currentUserId', user.id);
       await AsyncStorage.setItem('currentUserName', user.name);
-      router.replace('/cart');
+      router.replace('/(tabs)/cart');
     } catch (error) {
       console.error('Error saving user:', error);
     }
