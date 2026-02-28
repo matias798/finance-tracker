@@ -101,3 +101,134 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "Create a TypeScript web app for a couple (Matias & Agustina) to track shared purchases, expenses, shopping cart items. Features: tick to mark if divided/paid, history, dark theme, Danish Kroner currency, simple user selection without password."
+
+backend:
+  - task: "User initialization API"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "POST /api/users/init creates Matias and Agustina users"
+
+  - task: "Items CRUD API"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "GET/POST/PUT/DELETE /api/items endpoints working"
+
+  - task: "Toggle divided status API"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "PUT /api/items/{id}/toggle-divided working"
+
+  - task: "Move to expense API"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "PUT /api/items/{id}/move-to-expense working"
+
+frontend:
+  - task: "Login/User selection screen"
+    implemented: true
+    working: true
+    file: "/app/frontend/app/index.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "User can select Matias or Agustina, stores in AsyncStorage"
+
+  - task: "Shopping Cart tab"
+    implemented: true
+    working: true
+    file: "/app/frontend/app/(tabs)/cart.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Add items, delete, mark as purchased (move to expense)"
+
+  - task: "Expenses tab"
+    implemented: true
+    working: true
+    file: "/app/frontend/app/(tabs)/expenses.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "View expenses, add direct expenses, toggle divided checkbox"
+
+  - task: "History tab"
+    implemented: true
+    working: true
+    file: "/app/frontend/app/(tabs)/history.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Shows all items with stats"
+
+  - task: "Settings tab with user switch"
+    implemented: true
+    working: true
+    file: "/app/frontend/app/(tabs)/settings.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Switch user, logout functionality"
+
+metadata:
+  created_by: "main_agent"
+  version: "1.0"
+  test_sequence: 1
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "Items CRUD API"
+    - "Toggle divided status API"
+    - "Move to expense API"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+  - agent: "main"
+    message: "MVP implementation complete. Backend APIs tested with curl. Frontend UI built with dark theme, DKK currency. Need to test full flow."
