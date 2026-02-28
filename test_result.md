@@ -138,11 +138,14 @@ backend:
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: true
         agent: "main"
         comment: "PUT /api/items/{id}/toggle-divided working"
+      - working: true
+        agent: "testing"
+        comment: "✅ TESTED: Toggle divided status API working perfectly. PUT /api/items/{id}/toggle-divided correctly toggles isDivided field from false to true and vice versa. Response includes updated item with correct isDivided status."
 
   - task: "Move to expense API"
     implemented: true
