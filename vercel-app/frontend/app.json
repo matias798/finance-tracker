@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "Shared Expenses",
+    "slug": "shared-expenses",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "shared-expenses",
+    "userInterfaceStyle": "dark",
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
